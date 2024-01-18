@@ -1,13 +1,12 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Repositories</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
 <body>
     <header>
         <h1>GitHub Repositories</h1>
@@ -15,11 +14,30 @@
     <main>
         <label for="usernameInput">Enter GitHub Username:</label>
         <input type="text" id="usernameInput" placeholder="Enter username">
-        <button onclick="fetchRepositories()">Fetch Repositories</button>
+        <button onclick="fetchUserData()">Fetch User Data</button>
+        
+        <div id="userInfo">
+            <div id="userBio"></div>
+            <div id="userImage"></div>
+        </div>
 
-        <div id="repositories"></div>
+        <label for="perPageSelect">Repositories per page:</label>
+        <select id="perPageSelect" onchange="changePerPage()">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+        </select>
+
+        <h2>Repositories</h2>
+        <div id="repositories">
+            Search a user
+        </div>
+        <div id="pagination">
+            <button onclick="prevPage()" disabled>Prev Page</button>
+            <span id="currentPage">1</span>
+            <button onclick="nextPage()">Next Page</button>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>
-
 </html>
